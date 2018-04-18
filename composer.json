@@ -1,0 +1,62 @@
+{
+    "name": "szhorvath/laravel-getaddress",
+    "type": "library",
+    "description": "Laravel Package for getaddress.io",
+    "keywords": [
+        "getaddress",
+        "laravel-getaddress",
+        "laravel",
+        "getaddress.io",
+        "addess lookup"
+    ],
+    "homepage": "https://github.com/szhorvath/laravel-getaddress",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sandor Horvath",
+            "email": "z.sandor.horvath@gmail.com",
+            "homepage": "https://github.com/szhorvath/laravel-getaddress",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~5.6|~7.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "illuminate/support": "~5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=5.4.3",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Szhorvath\\Getaddress\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Szhorvath\\Getaddress\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Szhorvath\\GetAddress\\GetaddressServiceProvider"
+            ],
+            "aliases": {
+                "Getaddress": "Szhorvath\\Getaddress\\GetaddressFacade"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
