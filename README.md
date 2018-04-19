@@ -7,11 +7,6 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```Sandor Horvath``` ```szhorvath``` ```https://github.com/szhorvath``` ```z.sandor.horvath@gmail.com``` ```szhorvath``` ```laravel-getaddress``` ```Laravel Package for getaddress.io``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
-
-Laravel-getaddress is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
 Laravel-getaddress provides a wrapper around [getaddress.io](getaddress.io) for laravel 5.4 and up. This package is based on [PeteLawrence/getaddress](https://github.com/PeteLawrence/getaddress) PHP library.
 
 ## Installation in Laravel 5.4
