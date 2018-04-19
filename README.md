@@ -9,37 +9,75 @@
 
 **Note:** Replace ```Sandor Horvath``` ```szhorvath``` ```https://github.com/szhorvath``` ```z.sandor.horvath@gmail.com``` ```szhorvath``` ```laravel-getaddress``` ```Laravel Package for getaddress.io``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
+Laravel-getaddress is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
 PSRs you support to avoid any confusion with users and contributors.
 
-## Structure
+Laravel-getaddress provides a wrapper around [getaddress.io](getaddress.io) for laravel 5.4 and up. This package is based on [PeteLawrence/getaddress](https://github.com/PeteLawrence/getaddress) PHP library.
 
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
-```
-bin/
-config/
-src/
-tests/
-vendor/
-```
+## Installation in Laravel 5.4
 
 
-## Install
-
-Via Composer
-
+You can pull in the package via composer:
 ``` bash
 $ composer require szhorvath/laravel-getaddress
+```
 
-$ php artisan vendor:publish --provider="Szhorvath\Getaddress\GetaddressServiceProvider"
+You need to add Szhorvath\GetAddress\GetAddressServiceProvider to your `config/app.php` providers array:
+```php
+Szhorvath\GetAddress\GetAddressServiceProvider::class,
+```
+
+Add the following environmental variable to your `.env` file
+
+```php
+GETADDRESSIO_API_KEY=your-api-key
+```
+
+You must publish the config file:
+``` bash
+$ php artisan vendor:publish --provider="Szhorvath\GetAddress\GetAddressServiceProvider"
+```
+
+## Installation in Laravel 5.5 and up
+
+You can pull in the package via composer:
+``` bash
+$ composer require szhorvath/laravel-getaddress
+```
+The package will automatically register itself.
+
+
+Add the following environmental variable to your `.env` file
+```php
+GETADDRESSIO_API_KEY=your-api-key
+```
+
+You must publish the config file:
+``` bash
+$ php artisan vendor:publish --provider="Szhorvath\GetAddress\GetAddressServiceProvider"
 ```
 
 ## Usage
 
+In a controller
 ``` php
-$skeleton = new Szhorvath\Getaddress();
-echo $skeleton->echoPhrase('Hello, League!');
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Szhorvath\GetAddress\GetAddress;
+
+class AddressController extends Controller
+{
+    public function lookup(GetAddress $getaddress)
+    {
+        $address = $getaddress->lookup('S1 1PQ', 5);
+        $town = $address->getTown();
+
+        $addressList = $getaddress->lookup('S1 1PQ');
+
+    }
+}
+
 ```
 
 ## Change log
