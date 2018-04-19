@@ -36,7 +36,6 @@ class GetAddress
         }
 
         $parsedResponse = $this->parseResponse((string) $response->getBody());
-        dd($parsedResponse);
 
         return  $parsedResponse;
     }
