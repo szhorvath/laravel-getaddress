@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Szhorvath\\Getaddress\\": "src"
+            "Szhorvath\\GetAddress\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Szhorvath\\Getaddress\\": "tests"
+            "Szhorvath\\GetAddress\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +49,10 @@
         },
         "laravel": {
             "providers": [
-                "Szhorvath\\GetAddress\\GetaddressServiceProvider"
+                "Szhorvath\\GetAddress\\GetAddressServiceProvider"
             ],
             "aliases": {
-                "Getaddress": "Szhorvath\\Getaddress\\GetaddressFacade"
+                "Getaddress": "Szhorvath\\GetAddress\\GetAddressFacade"
             }
         }
     },

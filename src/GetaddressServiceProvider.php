@@ -1,11 +1,11 @@
 <?php
-namespace Szhorvath\Getaddress;
+namespace Szhorvath\GetAddress;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
-use Szhorvath\Getaddress\Getaddress;
+use Szhorvath\GetAddress\GetAddress;
 
-class GetaddressServiceProvider extends ServiceProvider
+class GetAddressServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -48,9 +48,9 @@ class GetaddressServiceProvider extends ServiceProvider
     private function registerGetaddress()
     {
         $this->app->singleton('getaddress', function ($app) {
-            return new Getaddress(config('getaddress.api_key'));
+            return new GetAddress(config('getaddress.api_key'));
         });
 
-        $this->app->alias('getaddress', Getaddress::class);
+        $this->app->alias('getaddress', GetAddress::class);
     }
 }

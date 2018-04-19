@@ -1,13 +1,13 @@
 <?php
 
-namespace Szhorvath\Getaddress;
+namespace Szhorvath\GetAddress;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Spatie\Fractal\Fractal
  */
-class GetaddressFacade extends Facade
+class GetAddressFacade extends Facade
 {
     /**
      * Get the registered name of the component.
