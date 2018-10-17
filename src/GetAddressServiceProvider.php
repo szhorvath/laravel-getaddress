@@ -1,5 +1,5 @@
 <?php
-namespace Szhorvath\GetAddress\Providers;
+namespace Szhorvath\GetAddress;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
