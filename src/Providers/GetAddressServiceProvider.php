@@ -1,5 +1,5 @@
 <?php
-namespace Szhorvath\GetAddress;
+namespace Szhorvath\GetAddress\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
@@ -38,14 +38,14 @@ class GetAddressServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerGetaddress();
+        $this->registerGetAddress();
 
         // use this if your package has a config file
         config([
                 'config/getaddress.php',
         ]);
     }
-    private function registerGetaddress()
+    private function registerGetAddress()
     {
         $this->app->singleton('getaddress', function ($app) {
             return new GetAddress(config('getaddress.api_key'));

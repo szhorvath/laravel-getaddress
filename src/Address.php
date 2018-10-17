@@ -7,13 +7,13 @@ namespace Szhorvath\GetAddress;
  */
 class Address
 {
-    private $line1;
-    private $line2;
-    private $line3;
-    private $line4;
-    private $town;
-    private $postalTown;
-    private $county;
+    protected $line1;
+    protected $line2;
+    protected $line3;
+    protected $line4;
+    protected $town;
+    protected $postalTown;
+    protected $county;
 
 
     /**
@@ -137,7 +137,11 @@ class Address
         return $this->county;
     }
 
-
+    /**
+     * Returns the address as comma separated string
+     *
+     * @return string
+     */
     public function toCsv()
     {
         return sprintf('%s,%s,%s,%s,%s,%s,%s', $this->getLine1(), $this->getLine2(), $this->getLine3(), $this->getLine4(), $this->getTown(), $this->getPostalTown(), $this->getCounty());

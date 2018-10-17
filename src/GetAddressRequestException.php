@@ -6,5 +6,5 @@ use Exception;
 
 class GetAddressRequestException extends Exception
 {
-    protected $message = 'There hase been an error retriving the address.';
+    protected $message = 'There has been an error retrieving the address.';
 }

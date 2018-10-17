@@ -1,13 +1,12 @@
 <?php
-
-namespace Szhorvath\GetAddress;
+namespace Szhorvath\GetAddress\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Spatie\Fractal\Fractal
+ * GetAddress Laravel Facade
  */
-class GetAddressFacade extends Facade
+class GetAddress extends Facade
 {
     /**
      * Get the registered name of the component.

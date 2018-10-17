@@ -11,13 +11,14 @@ Laravel-getaddress provides a wrapper around [getaddress.io](getaddress.io) for 
 
 ## Installation in Laravel 5.4
 
-
 You can pull in the package via composer:
-``` bash
+
+```bash
 $ composer require szhorvath/laravel-getaddress
 ```
 
 You need to add Szhorvath\GetAddress\GetAddressServiceProvider to your `config/app.php` providers array:
+
 ```php
 Szhorvath\GetAddress\GetAddressServiceProvider::class,
 ```
@@ -29,50 +30,73 @@ GETADDRESSIO_API_KEY=your-api-key
 ```
 
 You must publish the config file:
-``` bash
+
+```bash
 $ php artisan vendor:publish --provider="Szhorvath\GetAddress\GetAddressServiceProvider"
 ```
 
 ## Installation in Laravel 5.5 and up
 
 You can pull in the package via composer:
-``` bash
+
+```bash
 $ composer require szhorvath/laravel-getaddress
 ```
+
 The package will automatically register itself.
 
-
 Add the following environmental variable to your `.env` file
+
 ```php
 GETADDRESSIO_API_KEY=your-api-key
 ```
 
 You must publish the config file:
-``` bash
+
+```bash
 $ php artisan vendor:publish --provider="Szhorvath\GetAddress\GetAddressServiceProvider"
 ```
 
 ## Usage
 
-In a controller
-``` php
+In a controller you can use the Facade. The GetAddress always returns an array
+
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Szhorvath\GetAddress\GetAddress;
+use Szhorvath\GetAddress\Facades\GetAddress;
 
 class AddressController extends Controller
 {
-    public function lookup(GetAddress $getaddress)
+    public function lookup()
     {
-        $address = $getaddress->lookup('S1 1PQ', 5);
-        $town = $address->getTown();
+        $result = GetAddress::lookup('S20 8JH');
 
-        $addressList = $getaddress->lookup('S1 1PQ');
+        $longitude = $result->getLongitude();
+        $latitude = $result->getLatitude();
+        $addressList = $result->getAddresses();
 
+        foreach ($addressList as $key => $address) {
+            $line1 = $address->getLine1();
+            $line2 = $address->getLine2();
+            $line3 = $address->getLine3();
+            $line4 = $address->getLine4();
+            $town  = $address->getTown();
+            $postalTown = $address->getPostalTown();
+            $normalisedTown = $address->getNormalisedTown();
+            $county = $address->getCounty();
+            #Full address as comma separated string
+            $csv = $address->toCsv();
+        }
+
+        #Or for a specific address you can pass the house number or name as second parameter
+        $result = GetAddress::lookup('S20 8JH', 5);
+        #The get getAddresses method always returns an array
+        $address = $result->getAddresses()[0];
+        $town  = $address->getTown();
     }
 }
-
 ```
 
 ## Change log
@@ -81,7 +105,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
@@ -95,8 +119,8 @@ If you discover any security related issues, please email z.sandor.horvath@gmail
 
 ## Credits
 
-- [Sandor Horvath][link-author]
-- [All Contributors][link-contributors]
+-   [Sandor Horvath][link-author]
+-   [All Contributors][link-contributors]
 
 ## License
 
@@ -108,7 +132,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/szhorvath/laravel-getaddress.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/szhorvath/laravel-getaddress.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/szhorvath/laravel-getaddress.svg?style=flat-square
-
 [link-packagist]: https://packagist.org/packages/szhorvath/laravel-getaddress
 [link-travis]: https://travis-ci.org/szhorvath/laravel-getaddress
 [link-scrutinizer]: https://scrutinizer-ci.com/g/szhorvath/laravel-getaddress/code-structure

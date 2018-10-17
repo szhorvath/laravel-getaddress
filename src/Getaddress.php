@@ -10,10 +10,25 @@ use Szhorvath\GetAddress\Address;
 
 class GetAddress
 {
+    /**
+     * Guzzle client
+     *
+     * @var \GuzzleHttp\Client
+     */
     protected $client;
 
+    /**
+     * Getaddress api key
+     *
+     * @var string
+     */
     protected $apiKey;
 
+    /**
+     * Instantiate GetAddress
+     *
+     * @param string $apiKey
+     */
     public function __construct($apiKey)
     {
         $this->client = new Client([
@@ -23,6 +38,13 @@ class GetAddress
         $this->apiKey = $apiKey;
     }
 
+    /**
+     * Retrieves the addresses from get address api
+     *
+     * @param string $postcode
+     * @param string $houseNumOrName
+     * @return \Szhorvath\GetAddress\GetAddressResponse\GetAddressResponse
+     */
     public function lookup($postcode, $houseNumOrName = '')
     {
         try {
@@ -40,6 +62,12 @@ class GetAddress
         return  $parsedResponse;
     }
 
+    /**
+     * Processes the response coming from getaddress api
+     *
+     * @param string $response
+     * @return \Szhorvath\GetAddress\GetAddressResponse\GetAddressResponse
+     */
     public function parseResponse($response)
     {
         //Convert the response from JSON into an object
