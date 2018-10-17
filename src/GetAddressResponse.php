@@ -78,6 +78,16 @@ class GetAddressResponse
     }
 
     /**
+     * Get address
+     *
+     * @return \Szhorvath\GetAddress\Address
+     */
+    public function getAddress()
+    {
+        return (is_array($this->addresses) && count($this->addresses) === 1)? $this->addresses[0]: null;
+    }
+
+    /**
      * Set an address to the addresses array
      *
      * @param \Szhorvath\GetAddress\Address $address

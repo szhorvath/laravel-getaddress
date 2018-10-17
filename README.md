@@ -92,9 +92,9 @@ class AddressController extends Controller
 
         #Or for a specific address you can pass the house number or name as second parameter
         $result = GetAddress::lookup('S20 8JH', 5);
-        #The get getAddresses method always returns an array
-        $address = $result->getAddresses()[0];
-        $town  = $address->getTown();
+        if ($address = $result->getAddress()) {
+            $town  = $address->getTown();
+        };
     }
 }
 ```
