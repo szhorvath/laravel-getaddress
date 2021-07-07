@@ -1,5 +1,5 @@
 {
-    "name": "szhorvath/laravel-getaddress",
+    "name": "svetborisov/laravel-getaddress",
     "type": "library",
     "description": "Laravel Package for getaddress.io",
     "keywords": [
