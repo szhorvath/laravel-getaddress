@@ -40,7 +40,7 @@ $ php artisan vendor:publish --provider="Szhorvath\GetAddress\GetAddressServiceP
 You can pull in the package via composer:
 
 ```bash
-$ composer require szhorvath/laravel-getaddress
+$ composer require svetborisov/laravel-getaddress
 ```
 
 The package will automatically register itself.
