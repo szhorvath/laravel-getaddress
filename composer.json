@@ -1,5 +1,5 @@
 {
-    "name": "szhorvath/laravel-getaddress",
+    "name": "svetborisov/laravel-getaddress",
     "type": "library",
     "description": "Laravel Package for getaddress.io",
     "keywords": [
@@ -20,8 +20,7 @@
         }
     ],
     "require": {
-        "php": "~5.6|~7.0",
-        "guzzlehttp/guzzle": "^6.3",
+        "php": "~5.6|~7.0",      
         "illuminate/support": "~5.1"
     },
     "require-dev": {
